@@ -1,7 +1,15 @@
 ## curl-install
+> Use curl command install
 
 ```shell
+## install
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
+
+## check:
 node -v
+nmp -v
 ```
+
+## reosuces:
++ http://blog.csdn.net/tivon_594/article/details/79121252
