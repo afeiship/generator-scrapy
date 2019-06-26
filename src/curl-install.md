@@ -8,7 +8,7 @@ sudo apt-get install -y nodejs
 
 ## check:
 node -v
-nmp -v
+npm -v
 ```
 
 ## reosuces:
