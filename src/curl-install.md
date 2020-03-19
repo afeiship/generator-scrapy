@@ -11,5 +11,5 @@ node -v
 npm -v
 ```
 
-## reosuces:
+## resources
 + http://blog.csdn.net/tivon_594/article/details/79121252
