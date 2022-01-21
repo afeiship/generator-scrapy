@@ -4,6 +4,9 @@ import "fmt"
 
 var VERSION = "1.0.0"
 
-func P(msg string) {
-	fmt.Printf("%s\n", msg)
+func P(args ...interface{}) {
+	for _, param := range args {
+		fmt.Printf("%+v ", param)
+	}
+	fmt.Println("")
 }
