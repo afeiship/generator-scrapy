@@ -4,8 +4,6 @@ const chalk = require("chalk");
 const yosay = require("yosay");
 const globby = require("globby");
 const yoHelper = require("@jswork/yeoman-generator-helper");
-const execSync = require("child_process").execSync;
-const shellOpts = { shell: "/bin/bash" };
 
 require("@afeiship/next-npm-registries");
 require("@jswork/next-git-url");
@@ -16,6 +14,11 @@ const NPM_CHOICES = ["npm", "github", "alo7"].map(item => {
 });
 
 module.exports = class extends Generator {
+  get scrapAppName() {
+    const appName = nx.get(this.props, "project_name");
+    return appName ? nx.underscored(appName) : "";
+  }
+
   prompting() {
     // Have Yeoman greet the user.
     this.log(
@@ -27,18 +30,18 @@ module.exports = class extends Generator {
     );
 
     const prompts = [
-      // {
-      //   type: "input",
-      //   name: "scope",
-      //   message: "Your project_name scope (eg: `@babel`)?",
-      //   default: "jswork"
-      // },
-      // {
-      //   type: "list",
-      //   name: "registry",
-      //   message: "Your registry",
-      //   choices: NPM_CHOICES
-      // },
+      {
+        type: "input",
+        name: "scope",
+        message: "Your project_name scope (eg: `@babel`)?",
+        default: "jswork"
+      },
+      {
+        type: "list",
+        name: "registry",
+        message: "Your registry",
+        choices: NPM_CHOICES
+      },
       {
         type: "input",
         name: "project_name",
@@ -48,7 +51,8 @@ module.exports = class extends Generator {
       {
         type: "input",
         name: "description",
-        message: "Your description?"
+        message: "Your description?",
+        validate: Boolean
       }
     ];
 
@@ -61,16 +65,14 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const { project_name } = this.props;
-    const scrapyDir = nx.underscored(project_name);
-    execSync(`scrapy startproject ${scrapyDir}`, shellOpts);
-    this.composeWith(require.resolve("../activerecord"));
+    const appName = this.scrapAppName;
+    const opts = { appName };
+    this.composeWith(require.resolve("../scrapy"), opts);
+    this.composeWith(require.resolve("../activerecord"), opts);
     this.fs.copyTpl(
-      this.templatePath("**/*"),
+      globby.sync(this.templatePath("**"), { dot: true }),
       this.destinationPath(),
       this.props
     );
   }
-
-  install() {}
 };

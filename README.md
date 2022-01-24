@@ -6,5 +6,10 @@
 npm i -g @jswork/generator-scrapy
 ```
 
+## usage
+```shell
+yo @jswork/scrapy
+```
+
 ## License
 MIT © [afeiship](https://js.work)
