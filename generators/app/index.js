@@ -12,6 +12,7 @@ require("@jswork/next-underscored");
 const NPM_CHOICES = ["npm", "github", "alo7"].map(item => {
   return { name: item, value: nx.npmRegistries(item) };
 });
+const GEN = "@jswork/scrapy";
 
 module.exports = class extends Generator {
   get scrapAppName() {
@@ -67,8 +68,8 @@ module.exports = class extends Generator {
   writing() {
     const appName = this.scrapAppName;
     const opts = { appName };
-    this.composeWith(require.resolve("../scrapy"), opts);
-    this.composeWith(require.resolve("../activerecord"), opts);
+    this.composeWith(`${GEN}:scrapy`, opts);
+    this.composeWith(`${GEN}:activerecord`, opts);
     this.fs.copyTpl(
       globby.sync(this.templatePath("**"), { dot: true }),
       this.destinationPath(),
