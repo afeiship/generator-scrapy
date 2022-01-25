@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@afeiship/next-npm-registries": "^1.1.0",
-    "@jswork/generator-prompts": "^1.0.1",
+    "@jswork/generator-prompts": "^1.0.2",
     "@jswork/next": "^1.0.9",
     "@jswork/next-git-url": "^1.0.3",
     "@jswork/next-underscored": "^1.0.0",
