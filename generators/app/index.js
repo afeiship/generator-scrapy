@@ -3,18 +3,18 @@ const Generator = require("yeoman-generator");
 const chalk = require("chalk");
 const yosay = require("yosay");
 const globby = require("globby");
+const _ = require('lodash');
 const yoHelper = require("@jswork/yeoman-generator-helper");
 const getp = require("@jswork/generator-prompts");
 const MAIN = "@jswork/scrapy";
 const prompts = getp(["scope", "registry", "project_name", "description"]);
 
 require("@jswork/next-git-url");
-require("@jswork/next-underscored");
 
 module.exports = class extends Generator {
   get scrapAppName() {
     const appName = nx.get(this.props, "project_name");
-    return appName ? nx.underscored(appName) : "";
+    return appName ? _.snakeCase(appName) : "";
   }
 
   prompting() {
