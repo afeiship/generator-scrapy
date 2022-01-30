@@ -2,10 +2,10 @@ from orator import DatabaseManager, Schema
 databases = {
     'mysql': {
         'driver': 'mysql',
-        'host': 'rm-2zej62ye899z61b5o.mysql.rds.aliyuncs.com',
+        'host': '127.0.0.1',
         'database': 'uniprot_spider',
         'user': 'root',
-        'password': 'OGQ2NTJkZjlhYjRh',
+        'password': '123456',
         'prefix': ''
     }
 }
