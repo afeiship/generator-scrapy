@@ -3,7 +3,7 @@ const Generator = require("yeoman-generator");
 const chalk = require("chalk");
 const yosay = require("yosay");
 const globby = require("globby");
-const _ = require('lodash');
+const _ = require("lodash");
 const yoHelper = require("@jswork/yeoman-generator-helper");
 const getp = require("@jswork/generator-prompts");
 const MAIN = "@jswork/scrapy";
@@ -43,7 +43,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       globby.sync(this.templatePath("**"), { dot: true }),
       this.destinationPath(),
-      this.props
+      { ...this.props, appName: this.appName }
     );
   }
 };
