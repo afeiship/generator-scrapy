@@ -3,7 +3,9 @@
 
 ## installation
 ```shell
-npm i -g @jswork/generator-scrapy
+git clone git@github.com:afeiship/generator-scrapy.git
+cd generator-scrapy
+npm i && npm link
 ```
 
 ## usage
