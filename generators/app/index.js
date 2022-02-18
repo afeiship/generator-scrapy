@@ -3,7 +3,7 @@ const Generator = require("yeoman-generator");
 const chalk = require("chalk");
 const yosay = require("yosay");
 const globby = require("globby");
-const _ = require('lodash');
+const _ = require("lodash");
 const yoHelper = require("@jswork/yeoman-generator-helper");
 const getp = require("@jswork/generator-prompts");
 const MAIN = "@jswork/scrapy";
@@ -40,6 +40,9 @@ module.exports = class extends Generator {
     const opts = { appName };
     this.composeWith(`${MAIN}:scrapy`, opts);
     this.composeWith(`${MAIN}:activerecord`, opts);
+    setTimeout(() => {
+      this.composeWith(`${MAIN}:logs`, opts);
+    }, 0);
     this.fs.copyTpl(
       globby.sync(this.templatePath("**"), { dot: true }),
       this.destinationPath(),
