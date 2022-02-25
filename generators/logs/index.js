@@ -1,6 +1,5 @@
 "use strict";
 const Generator = require("yeoman-generator");
-const globby = require("globby");
 const { execSync } = require("child_process");
 
 module.exports = class extends Generator {
