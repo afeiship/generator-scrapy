@@ -42,7 +42,7 @@ module.exports = class extends Generator {
     this.composeWith(`${MAIN}:activerecord`, opts);
     setTimeout(() => {
       this.composeWith(`${MAIN}:logs`, opts);
-    }, 0);
+    }, 300);
     this.fs.copyTpl(
       globby.sync(this.templatePath("**"), { dot: true }),
       this.destinationPath(),

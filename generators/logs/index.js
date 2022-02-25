@@ -1,19 +1,21 @@
 "use strict";
 const Generator = require("yeoman-generator");
+const globby = require("globby");
+const { execSync } = require("child_process");
 
 module.exports = class extends Generator {
   writing() {
-    this.fs.copyTpl(
-      this.templatePath("logs"),
-      this.destinationPath(this.options.appName),
-      this.props
-    );
+    const dist = this.destinationPath();
+    execSync(`cd ${dist} && mkdir logs && cd logs && touch .gitkeep`);
   }
 
   updateSetttings() {
     const { appName } = this.options;
     const filename = this.destinationPath(`${appName}/settings.py`);
-    const settings = this.fs.read(filename);
-    console.log(settings);
+
+    this.fs.append(
+      filename,
+      ['\nLOG_LEVEL = "WARNING"', 'LOG_FILE = "./logs/spider.log"'].join("\n")
+    );
   }
 };
