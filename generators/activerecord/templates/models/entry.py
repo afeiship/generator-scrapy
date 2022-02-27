@@ -1,6 +1,7 @@
-from orator import Model
+# from orator import Model
+from .base_model import BaseModel
 
 
-class Entry(Model):
+class Entry(Base):
 
     pass
