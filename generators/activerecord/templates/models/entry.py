@@ -2,6 +2,6 @@
 from .base_model import BaseModel
 
 
-class Entry(Base):
-
+class Entry(BaseModel):
+    __table__ = 'entries'
     pass

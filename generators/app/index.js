@@ -40,6 +40,9 @@ module.exports = class extends Generator {
     const opts = { appName };
     this.composeWith(`${MAIN}:scrapy`, opts);
     this.composeWith(`${MAIN}:activerecord`, opts);
+    setTimeout(() => {
+      this.composeWith(`${MAIN}:logs`, opts);
+    }, 300);
     this.fs.copyTpl(
       globby.sync(this.templatePath("**"), { dot: true }),
       this.destinationPath(),
