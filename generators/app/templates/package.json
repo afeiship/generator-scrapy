@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "<%= description %>",
   "scripts": {
-    "db:migrate": "cd <%= project_name %> && orator migrate --config db.py",
+    "db:migrate": "cd <%= appName %> && orator migrate --config db.py",
     "spy:entry": "scrapy crawl entry"
   },
   "keywords": [
