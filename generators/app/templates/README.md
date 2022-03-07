@@ -4,7 +4,7 @@
 ## commands
 ```shell
 # create new migration with model
-cd scrapy_app
+cd <%= project_name %>
 orator make:migration create_users_table -m
 
 # use pm2 manage your spider
