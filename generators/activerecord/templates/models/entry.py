@@ -1,7 +1,7 @@
 # from orator import Model
-from .base_model import BaseModel
+from .abstract_model import AbstractModel
 
 
-class Entry(BaseModel):
+class Entry(AbstractModel):
     __table__ = 'entries'
     pass
