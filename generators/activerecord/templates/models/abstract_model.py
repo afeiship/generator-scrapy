@@ -1,4 +1,5 @@
 from orator import Model
+import pendulum
 
 
 class AbstractModel(Model):
@@ -15,3 +16,7 @@ class AbstractModel(Model):
     @classmethod
     def find_by(cls, options):
         return cls.where(options).first()
+
+    # normalize timezone
+    def fresh_timestamp(self):
+      return pendulum.now('Asia/Shanghai')
