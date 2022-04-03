@@ -2,6 +2,8 @@
 const Generator = require("yeoman-generator");
 const { execSync } = require("child_process");
 
+require("@jswork/next-replace-in-file");
+
 module.exports = class extends Generator {
   writing() {
     const dist = this.destinationPath();
@@ -11,6 +13,11 @@ module.exports = class extends Generator {
   updateSetttings() {
     const { appName } = this.options;
     const filename = this.destinationPath(`${appName}/settings.py`);
+
+    // robots.txt
+    nx.replaceInFile(filename, [
+      ["ROBOTSTXT_OBEY = True", "ROBOTSTXT_OBEY = False"]
+    ]);
 
     this.fs.append(
       filename,
