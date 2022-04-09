@@ -49,4 +49,10 @@ module.exports = class extends Generator {
       { ...this.props, appName: this.appName }
     );
   }
+
+  end() {
+    console.log(
+      `create database ${this.appName} default character set utf8mb4 collate utf8mb4_unicode_ci;`
+    );
+  }
 };
