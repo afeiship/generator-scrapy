@@ -52,6 +52,7 @@ module.exports = class extends Generator {
 
   end() {
     console.log(
+      `Run the command for database: \n`,
       `create database ${this.scrapAppName} default character set utf8mb4 collate utf8mb4_unicode_ci;`
     );
   }
