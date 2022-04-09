@@ -6,7 +6,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath("**/*"),
       this.destinationPath(this.options.appName),
-      this.props
+      { ...this.props, app_name: this.options.appName }
     );
   }
 };
