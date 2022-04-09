@@ -6,7 +6,7 @@
   "scripts": {
     "env:active": "source $(poetry env info --path)/bin/activate",
     "env:deactive": "poetry env remove txz-zbloger-DXFSsd5v-py3.9",
-    "db:migrate": "cd <%= appName %> && orator migrate --config db.py",
+    "db:migrate": "cd <%= appName %> && poetry run orator migrate --config db.py",
     "log:empty": "cat /dev/null > logs/spider.log",
     "log:tail": "tail -f logs/spider.log",
     "spy:entry": "scrapy crawl entry"
