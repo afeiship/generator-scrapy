@@ -3,6 +3,8 @@ import pendulum
 
 
 class AbstractModel(Model):
+    __guarded__ = []
+
     @classmethod
     def find_or_new_by(cls, options):
         entity = cls.find_by(options)
@@ -19,4 +21,4 @@ class AbstractModel(Model):
 
     # normalize timezone
     def fresh_timestamp(self):
-      return pendulum.now('Asia/Shanghai')
+        return pendulum.now('Asia/Shanghai')
