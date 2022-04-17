@@ -8,7 +8,13 @@ cd <%= project_name %>
 orator make:migration create_users_table -m
 
 # use pm2 manage your spider
-pm2 start entry.py --interpreter=python3 --name us:entry
+poetry install
+# active env
+npm run env:active
+# start a spider
+poetry run scrapy crawl entry
+# start with pm2
+pm2 start ecosystem.config.js --only "entry"
 ```
 
 ## database
