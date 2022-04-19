@@ -5,7 +5,7 @@
 ```shell
 # create new migration with model
 cd <%= project_name %>
-orator make:migration create_users_table -m
+orator make:model User -m
 
 # use pm2 manage your spider
 poetry install
