@@ -11,6 +11,7 @@ npm i && npm link
 ## usage
 ```shell
 yo @jswork/scrapy
+yo @jswork/scrapy:model
 ```
 
 ## License
