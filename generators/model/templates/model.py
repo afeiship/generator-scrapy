@@ -2,6 +2,6 @@
 from .abstract_model import AbstractModel
 
 
-class <%= ModelName %>(AbstractModel):
-    __table__ = '<%= model_name %>s'
+class <%- ctx.classify(model_name) %>(AbstractModel):
+    __table__ = '<%- ctx.pluralize(model_name) %>'
     pass

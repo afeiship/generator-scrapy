@@ -15,9 +15,6 @@ module.exports = class extends Generator {
     ];
 
     this.props = await this.prompt(prompts);
-    yoHelper.rewriteProps(props, {
-      exclude: ["email", "description", "author", "homepage", "registry"]
-    });
   }
 
   writing() {
@@ -28,7 +25,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       this.templatePath("model.py"),
       this.destinationPath(`${target}/${model_name}.py`),
-      this.props
+      { ...this.props, ctx: yoHelper.ctx }
     );
   }
 };
