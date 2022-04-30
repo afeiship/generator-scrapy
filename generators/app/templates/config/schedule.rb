@@ -25,3 +25,10 @@ set :output, "#{PROJECT_PATH}/logs/schedule.log"
 every 5.minute do
   command "pm2 restart all"
 end
+
+# ---- whenever tasks ----
+# alias when-clear='whenever -c'
+# alias when-init='wheneverize .'
+# alias when-list='whenever'
+# alias when-list-all='crontab -l'
+# alias when-update='whenever --update-crontab'
