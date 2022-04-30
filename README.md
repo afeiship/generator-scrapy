@@ -11,7 +11,10 @@ npm i && npm link
 ## usage
 ```shell
 yo @jswork/scrapy
-yo @jswork/scrapy:model
+
+# create model
+yo @jswork/scrapy:model nx_page
+yo @jswork/scrapy:model nx_url
 ```
 
 ## License
