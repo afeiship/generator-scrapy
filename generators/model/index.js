@@ -10,7 +10,7 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const [model_name, _] = this.arguments;
+    const { model_name } = this.options;
     const dirs = globby.sync("**/models", { onlyDirectories: true });
     const target = dirs.find(item => item.endsWith("models"));
 
