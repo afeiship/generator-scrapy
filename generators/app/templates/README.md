@@ -15,6 +15,9 @@ npm run env:active
 poetry run scrapy crawl entry
 # start with pm2
 pm2 start ecosystem.config.js --only "entry"
+
+## generator
+yo @jswork/scrapy:model
 ```
 
 ## database
