@@ -15,6 +15,12 @@ yo @jswork/scrapy
 # create model
 yo @jswork/scrapy:model nx_page
 yo @jswork/scrapy:model nx_url
+
+# create spide
+yo @jswork/scrapy:spider nx_page
+
+# create spider + model
+yo @jswork/scrapy:spmodel nx_page
 ```
 
 ## License
