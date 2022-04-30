@@ -16,8 +16,13 @@ poetry run scrapy crawl entry
 # start with pm2
 pm2 start ecosystem.config.js --only "entry"
 
-## generator
-yo @jswork/scrapy:model
+## generators
+# create model
+yo @jswork/scrapy:model ncbi_page
+# create spider
+yo @jswork/scrapy:spider ncbi_page
+# create spider + model
+yo @jswork/scrapy:spmodel ncbi_page
 ```
 
 ## database
