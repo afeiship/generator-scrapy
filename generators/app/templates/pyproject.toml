@@ -2,16 +2,17 @@
 name = "<%= project_name %>"
 version = "0.1.0"
 description = "<%= description %>"
-authors = ["feizheng <1290657123@qq.com>"]
+authors = ["afeiship <1290657123@qq.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.7"
 orator = "^0.9.9"
 mysqlclient = "^2.1.0"
 jsw-nx = "^1.0.78"
 Scrapy = "^2.5.1"
 pydash = "^5.1.0"
+jsw-scrapy = "^1.0.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
