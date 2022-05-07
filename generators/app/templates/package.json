@@ -9,7 +9,7 @@
     "db:migrate": "cd <%= appName %> && poetry run orator migrate --config db.py",
     "log:empty": "cat /dev/null > logs/spider.log",
     "log:tail": "tail -f logs/spider.log",
-    "spy:entry": "scrapy crawl entry"
+    "spy:entry": "poetry run scrapy crawl entry"
   },
   "keywords": [
     "scrapy",
