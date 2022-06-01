@@ -1,6 +1,6 @@
 # from orator import Model
 # from .abstract_model import AbstractModel
-from jsw_scrapy.models import BaseModel
+from jsw_scrapy.models.base_model import BaseModel
 
 
 class <%- ctx.classify(model_name) %>(BaseModel):
