@@ -6,7 +6,7 @@ authors = ["afeiship <1290657123@qq.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 orator = "^0.9.9"
 mysqlclient = "^2.1.0"
 jsw-nx = "^1.0.92"
