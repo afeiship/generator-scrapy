@@ -10,6 +10,7 @@ const MAIN = "@jswork/scrapy";
 const prompts = getp(["scope", "registry", "project_name", "description"]);
 
 require("@jswork/next-git-url");
+require("@jswork/next-random-string");
 
 module.exports = class extends Generator {
   get scrapAppName() {
@@ -36,6 +37,7 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    const randomStr = nx.randomString(5)
     const appName = this.scrapAppName;
     const opts = { appName };
     this.composeWith(`${MAIN}:scrapy`, opts);
@@ -46,7 +48,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       globby.sync(this.templatePath("**"), { dot: true }),
       this.destinationPath(),
-      { ...this.props, appName }
+      { ...this.props, appName, randomStr }
     );
   }
 };

@@ -1,8 +1,8 @@
 from orator import DatabaseManager, Schema
-from .helpers.env_select import env_select
+import jsw_nx as nx
 
 databases = {
-    'default': env_select(),
+    'default': nx.env_select(),
     # ====== remote ======
     'remote': {
         'driver': 'mysql',
@@ -19,7 +19,7 @@ databases = {
         'host': '127.0.0.1',
         'database': '<%= app_name %>',
         'user': 'root',
-        'password': '123456',
+        'password': '98LNaNmPjJbesmEI',
         'prefix': ''
     }
 }
