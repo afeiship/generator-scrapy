@@ -1,6 +1,8 @@
 from orator import DatabaseManager, Schema
 import jsw_nx as nx
 
+mysql_pwd = nx.getenv('MYSQL_PWD')
+
 databases = {
     'default': nx.env_select(),
     # ====== remote ======
@@ -19,7 +21,7 @@ databases = {
         'host': '127.0.0.1',
         'database': '<%= app_name %>',
         'user': 'root',
-        'password': '98LNaNmPjJbesmEI',
+        'password': mysql_pwd,
         'prefix': ''
     }
 }
