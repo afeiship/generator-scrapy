@@ -20,3 +20,7 @@ jsw-scrapy = "^1.0.2"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.source]
+name = "douban"
+url = "https://pypi.doubanio.com/simple/"
