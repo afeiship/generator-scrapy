@@ -12,6 +12,16 @@ const prompts = getp(["scope", "registry", "project_name", "description"]);
 require("@jswork/next-git-url");
 require("@jswork/next-random-string");
 
+const OrmPromItems = {
+  type: "list",
+  name: "orm",
+  message: "Your orm type?",
+  choices: [
+    { name: "Peewee", value: "peewee" },
+    { name: "Orator", value: "orator" }
+  ]
+};
+
 module.exports = class extends Generator {
   get scrapAppName() {
     const appName = nx.get(this.props, "project_name");
@@ -28,7 +38,9 @@ module.exports = class extends Generator {
       )
     );
 
-    return this.prompt(prompts).then(props => {
+    const thePrompts = [OrmPromItems, ...prompts];
+
+    return this.prompt(thePrompts).then(props => {
       this.props = props;
       yoHelper.rewriteProps(props, {
         exclude: ["email", "description", "author", "homepage", "registry"]
@@ -37,9 +49,11 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const randomStr = nx.randomString(5)
+    const randomStr = nx.randomString(5);
     const appName = this.scrapAppName;
-    const opts = { appName };
+    const orm = this.props.orm;
+    const opts = { appName, orm };
+
     this.composeWith(`${MAIN}:scrapy`, opts);
     this.composeWith(`${MAIN}:activerecord`, opts);
     setTimeout(() => {
