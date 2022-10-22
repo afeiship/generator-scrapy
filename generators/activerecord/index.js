@@ -5,8 +5,6 @@ module.exports = class extends Generator {
   writing() {
     const { orm, appName } = this.options;
 
-    console.log("writing opts: ", orm, appName);
-
     this.fs.copyTpl(
       this.templatePath(`**/${orm}/**`),
       this.destinationPath(appName),

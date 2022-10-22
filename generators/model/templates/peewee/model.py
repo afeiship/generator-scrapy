@@ -2,10 +2,10 @@ from peewee import *
 from ..db import db
 
 
-class Book(Model):
+class <%- ctx.classify(model_name) %>(Model):
     title = CharField()
     content = TextField()
 
     class Meta:
         database = db
-        table_name = 'books'
+        table_name = '<%- ctx.pluralize(model_name) %>'
