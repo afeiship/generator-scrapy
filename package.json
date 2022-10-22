@@ -40,8 +40,9 @@
     "@jswork/yeoman-generator-helper": "^1.0.6",
     "chalk": "^2.1.0",
     "fast-glob": "^3.2.11",
+    "globby": "11",
     "pluralize": "^8.0.0",
-    "yeoman-generator": "^3.1.1",
+    "yeoman-generator": "^5.7.0",
     "yosay": "^2.0.2"
   },
   "scripts": {

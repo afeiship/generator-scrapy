@@ -1,5 +1,5 @@
 from peewee import *
-from spider_knlib.db import db
+from .db import db
 
 
 class Book(Model):

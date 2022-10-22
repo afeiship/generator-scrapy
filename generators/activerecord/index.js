@@ -3,10 +3,20 @@ const Generator = require("yeoman-generator");
 
 module.exports = class extends Generator {
   writing() {
+    const { orm, appName } = this.options;
+
+    console.log("writing opts: ", orm, appName);
+
     this.fs.copyTpl(
-      this.templatePath("**/*"),
-      this.destinationPath(this.options.appName),
-      { ...this.props, app_name: this.options.appName }
+      this.templatePath(`**/${orm}/**`),
+      this.destinationPath(appName),
+      { ...this.props, app_name: appName, orm },
+      null,
+      {
+        processDestinationPath: filePath => {
+          return filePath.replace(orm, "dbs");
+        }
+      }
     );
   }
 };

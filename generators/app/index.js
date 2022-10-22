@@ -12,7 +12,7 @@ const prompts = getp(["scope", "registry", "project_name", "description"]);
 require("@jswork/next-git-url");
 require("@jswork/next-random-string");
 
-const OrmPromItems = {
+const OrmListItems = {
   type: "list",
   name: "orm",
   message: "Your orm type?",
@@ -38,7 +38,7 @@ module.exports = class extends Generator {
       )
     );
 
-    const thePrompts = [OrmPromItems, ...prompts];
+    const thePrompts = [OrmListItems, ...prompts];
 
     return this.prompt(thePrompts).then(props => {
       this.props = props;
