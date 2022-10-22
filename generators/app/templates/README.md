@@ -18,7 +18,7 @@ pm2 start ecosystem.config.js --only "entry"
 
 ## generators
 # create model
-yo @jswork/scrapy:model ncbi_page
+yo @jswork/scrapy:model ncbi_page --orm=peewee
 # create spider
 yo @jswork/scrapy:spider ncbi_page
 # create spider + model

@@ -7,7 +7,7 @@ module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
     this.argument("model_name", { type: String, required: true });
-    this.argument("orm", { type: String, required: true });
+    this.option("orm", { type: String, required: true });
   }
 
   writing() {

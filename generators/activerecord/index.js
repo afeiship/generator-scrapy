@@ -11,9 +11,7 @@ module.exports = class extends Generator {
       { ...this.props, app_name: appName, orm },
       null,
       {
-        processDestinationPath: filePath => {
-          return filePath.replace(orm, "dbs");
-        }
+        processDestinationPath: filePath => filePath.replace(orm, "")
       }
     );
   }
