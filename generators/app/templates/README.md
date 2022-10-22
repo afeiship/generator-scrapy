@@ -23,6 +23,10 @@ yo @jswork/scrapy:spmodel ncbi_page
 
 ## database
 ```shell
+# use pasword
 mysql -uroot -p123456 -h127.0.0.1
+# if you have set `MYSQL_PWD` env
+mysql -uroot -h127.0.0.1
+# create project database
 create database <%= app_name %> default character set utf8mb4 collate utf8mb4_unicode_ci;
 ```
