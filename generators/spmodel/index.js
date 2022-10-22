@@ -9,8 +9,8 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const { spm_name } = this.options;
-    const opts = { arguments: [spm_name] };
+    const { orm, spm_name } = this.options;
+    const opts = { arguments: [spm_name], orm };
     // create model/spider names:
     this.composeWith("@jswork/scrapy:model", opts);
     this.composeWith("@jswork/scrapy:spider", opts);
