@@ -50,9 +50,9 @@ module.exports = class extends Generator {
 
   writing() {
     const randomStr = nx.randomString(5);
-    const appName = this.scrapAppName;
+    const app_name = this.scrapAppName;
     const orm = this.props.orm;
-    const opts = { appName, orm };
+    const opts = { app_name, orm };
 
     this.composeWith(`${MAIN}:scrapy`, opts);
     this.composeWith(`${MAIN}:activerecord`, opts);
@@ -62,7 +62,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       globby.sync(this.templatePath("**"), { dot: true }),
       this.destinationPath(),
-      { ...this.props, appName, randomStr }
+      { ...this.props, app_name, randomStr }
     );
   }
 };

@@ -6,8 +6,8 @@ const TMP = "__tmp__";
 
 module.exports = class extends Generator {
   writing() {
-    const appName = this.options.appName;
-    execSync(`scrapy startproject ${appName}`, shellOpts);
-    execSync(`mv ${appName} ${TMP} && cp -R ${TMP}/* . && rm -rf ${TMP}`);
+    const app_name = this.options.app_name;
+    execSync(`scrapy startproject ${app_name}`, shellOpts);
+    execSync(`mv ${app_name} ${TMP} && cp -R ${TMP}/* . && rm -rf ${TMP}`);
   }
 };

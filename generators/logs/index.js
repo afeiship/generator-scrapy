@@ -10,9 +10,9 @@ module.exports = class extends Generator {
     execSync(`cd ${dist} && mkdir logs && cd logs && touch .gitkeep`);
   }
 
-  updateSetttings() {
-    const { appName } = this.options;
-    const filename = this.destinationPath(`${appName}/settings.py`);
+  updateSettings() {
+    const { app_name } = this.options;
+    const filename = this.destinationPath(`${app_name}/settings.py`);
 
     // robots.txt
     nx.replaceInFile(filename, [

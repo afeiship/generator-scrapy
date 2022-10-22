@@ -3,10 +3,6 @@
 
 ## commands
 ```shell
-# create new migration with model
-cd <%= project_name %>
-orator make:model User -m
-
 # use pm2 manage your spider
 poetry install
 # active env
@@ -28,5 +24,5 @@ yo @jswork/scrapy:spmodel ncbi_page
 ## database
 ```shell
 mysql -uroot -p123456 -h127.0.0.1
-create database <%= appName %> default character set utf8mb4 collate utf8mb4_unicode_ci;
+create database <%= app_name %> default character set utf8mb4 collate utf8mb4_unicode_ci;
 ```
