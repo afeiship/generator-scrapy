@@ -23,7 +23,10 @@ class <%- ctx.classify(model_name) %>Spider(BaseSpider):
     def start_requests(self):
       records = self.records
       if self.is_done:
-          nx.Pm2Manager.stop_and_del(self.name)
+          nx.Pm2Manager.delete(self.name)
           self.logger.info('All records are crawled')
+
+      for record in records:
+        pass
 
       return self.noop_request()
