@@ -21,7 +21,7 @@ module.exports = class extends Generator {
 
     this.fs.append(
       filename,
-      ['\nLOG_LEVEL = "WARNING"', 'LOG_FILE = "./logs/spider.log"'].join("\n")
+      ['\nLOG_LEVEL = "INFO"', 'LOG_FILE = "./logs/spider.log"'].join("\n")
     );
   }
 };
