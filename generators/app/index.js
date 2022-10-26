@@ -62,7 +62,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       globby.sync(this.templatePath("**"), { dot: true }),
       this.destinationPath(),
-      { ...this.props, app_name, randomStr }
+      { ...this.props, app_name, randomStr, ctx: yoHelper.ctx }
     );
   }
 };
