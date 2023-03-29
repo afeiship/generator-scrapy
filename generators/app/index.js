@@ -16,10 +16,11 @@ const OrmListItems = {
   type: "list",
   name: "orm",
   message: "Your orm type?",
+  default: "orator",
   choices: [
     { name: "Peewee", value: "peewee" },
-    { name: "Orator", value: "orator" }
-  ]
+    { name: "Orator", value: "orator" },
+  ],
 };
 
 module.exports = class extends Generator {
@@ -40,10 +41,10 @@ module.exports = class extends Generator {
 
     const thePrompts = [OrmListItems, ...prompts];
 
-    return this.prompt(thePrompts).then(props => {
+    return this.prompt(thePrompts).then((props) => {
       this.props = props;
       yoHelper.rewriteProps(props, {
-        exclude: ["email", "description", "author", "homepage", "registry"]
+        exclude: ["email", "description", "author", "homepage", "registry"],
       });
     });
   }
