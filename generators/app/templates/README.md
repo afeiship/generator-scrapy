@@ -19,6 +19,9 @@ yo @jswork/scrapy:model ncbi_page --orm=peewee
 yo @jswork/scrapy:spider ncbi_page --orm=peewee
 # create spider + model
 yo @jswork/scrapy:spmodel ncbi_page --orm=peewee
+
+# Add pipelines(processor + download)
+yo @jswork/scrapy:pipelines
 ```
 
 ## database

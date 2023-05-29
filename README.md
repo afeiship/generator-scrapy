@@ -10,7 +10,11 @@ npm i && npm link
 
 ## usage
 ```shell
+# Init project
 yo @jswork/scrapy
+
+# Add pipelines(processor + download)
+yo @jswork/scrapy:pipelines
 
 # create model
 yo @jswork/scrapy:model nx_page

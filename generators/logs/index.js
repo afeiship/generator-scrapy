@@ -19,9 +19,14 @@ module.exports = class extends Generator {
       ["ROBOTSTXT_OBEY = True", "ROBOTSTXT_OBEY = False"]
     ]);
 
+    // settings
     this.fs.append(
       filename,
-      ['\nLOG_LEVEL = "INFO"', 'LOG_FILE = "./logs/spider.log"'].join("\n")
+      [
+        '\nLOG_LEVEL = "INFO"',
+        'LOG_FILE = "./logs/spider.log"',
+        'FILES_STORE = "./downloads"',
+      ].join("\n")
     );
   }
 };
