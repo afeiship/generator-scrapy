@@ -16,7 +16,7 @@ const OrmListItems = {
   type: "list",
   name: "orm",
   message: "Your orm type?",
-  default: "orator",
+  default: "peewee",
   choices: [
     { name: "Peewee", value: "peewee" },
     { name: "Orator", value: "orator" },
@@ -34,9 +34,9 @@ module.exports = class extends Generator {
     this.log(
       yosay(
         `Welcome to the praiseworthy ${chalk.red(
-          "generator-scrapy"
-        )} generator!`
-      )
+          "generator-scrapy",
+        )} generator!`,
+      ),
     );
 
     const thePrompts = [OrmListItems, ...prompts];
@@ -63,7 +63,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       globby.sync(this.templatePath("**"), { dot: true }),
       this.destinationPath(),
-      { ...this.props, app_name, randomStr, ctx: yoHelper.ctx }
+      { ...this.props, app_name, randomStr, ctx: yoHelper.ctx },
     );
   }
 };
