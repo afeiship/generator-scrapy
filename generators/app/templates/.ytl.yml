@@ -1,9 +1,0 @@
-name: <%= app_name %>
-cache: <%= randomStr %>
-vars:
-  home: ${{ env.HOME }}
-  db_name: <%= app_name %>
-  backup_args: --column-statistics=0 -uroot -h127.0.0.1 --no-data --databases
-tasks:
-  db_backup:
-    - mysqldump ${{ vars.backup_args }} ${{ vars.db_name }} > ./backup/<%= app_name %>.sql
