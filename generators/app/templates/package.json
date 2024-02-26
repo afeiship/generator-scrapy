@@ -14,5 +14,8 @@
     "python",
     "spider"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@jswork/yeoman-generator-helper": "^1.0.11"
+  }
 }
