@@ -7,13 +7,13 @@ module.exports = class extends Generator {
     const { orm, app_name } = this.options;
 
     this.fs.copyTpl(
-      this.templatePath(`**/${orm}/**`),
+      this.templatePath("**"),
       this.destinationPath(app_name),
       { ...this.props, app_name, orm, ctx: yoHelper.ctx },
       null,
       {
-        processDestinationPath: filePath => filePath.replace(orm, "")
-      }
+        processDestinationPath: (filePath) => filePath.replace(orm, ""),
+      },
     );
   }
 };

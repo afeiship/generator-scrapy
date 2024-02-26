@@ -12,24 +12,13 @@ const prompts = getp(["scope", "registry", "project_name", "description"]);
 require("@jswork/next-git-url");
 require("@jswork/next-random-string");
 
-const OrmListItems = {
-  type: "list",
-  name: "orm",
-  message: "Your orm type?",
-  default: "peewee",
-  choices: [
-    { name: "Peewee", value: "peewee" },
-    { name: "Orator", value: "orator" },
-  ],
-};
-
 module.exports = class extends Generator {
   get scrapAppName() {
     const appName = nx.get(this.props, "project_name");
     return appName ? _.snakeCase(appName) : "";
   }
 
-  prompting() {
+  async prompting() {
     // Have Yeoman greet the user.
     this.log(
       yosay(
@@ -39,21 +28,16 @@ module.exports = class extends Generator {
       ),
     );
 
-    const thePrompts = [OrmListItems, ...prompts];
-
-    return this.prompt(thePrompts).then((props) => {
-      this.props = props;
-      yoHelper.rewriteProps(props, {
-        exclude: ["email", "description", "author", "homepage", "registry"],
-      });
+    this.props = await this.prompt(prompts);
+    yoHelper.rewriteProps(props, {
+      exclude: ["email", "description", "author", "homepage", "registry"],
     });
   }
 
   writing() {
     const randomStr = nx.randomString(5);
     const app_name = this.scrapAppName;
-    const orm = this.props.orm;
-    const opts = { app_name, orm };
+    const opts = { app_name };
 
     this.composeWith(`${MAIN}:scrapy`, opts);
     this.composeWith(`${MAIN}:activerecord`, opts);
