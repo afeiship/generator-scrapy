@@ -1,7 +1,6 @@
-"use strict";
-const Generator = require("yeoman-generator");
+import Generator from "yeoman-generator";
 
-module.exports = class extends Generator {
+export default class extends Generator {
   constructor(args, opts) {
     super(args, opts);
     this.argument("spm_name", { type: String, required: true });
@@ -14,4 +13,4 @@ module.exports = class extends Generator {
     this.composeWith("@jswork/scrapy:model", opts);
     this.composeWith("@jswork/scrapy:spider", opts);
   }
-};
+}

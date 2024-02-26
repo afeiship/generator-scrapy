@@ -1,6 +1,7 @@
 {
   "name": "@jswork/generator-scrapy",
   "version": "1.0.0",
+  "type": "module",
   "description": "Yeoman generator for scrapy app.",
   "homepage": "https://github.com/afeiship/generator-scrapy",
   "author": {
@@ -8,16 +9,9 @@
     "email": "1290657123@qq.com",
     "url": "https://js.work"
   },
-  "files": [
-    "generators"
-  ],
+  "files": ["generators"],
   "main": "generators/index.js",
-  "keywords": [
-    "yeoman",
-    "scrapy",
-    "spider",
-    "generator"
-  ],
+  "keywords": ["yeoman", "scrapy", "spider", "generator"],
   "devDependencies": {
     "git-url-parse": "^11.6.0",
     "prettier": "^3.2.5"
@@ -34,7 +28,7 @@
     "fast-glob": "^3.2.11",
     "globby": "11",
     "pluralize": "^8.0.0",
-    "yeoman-generator": "^5.7.0",
+    "yeoman-generator": "^6.0.1",
     "yosay": "^2.0.2"
   },
   "repository": "git@github.com:afeiship/generator-scrapy.git",

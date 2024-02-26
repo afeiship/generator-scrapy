@@ -1,18 +1,23 @@
-"use strict";
-const Generator = require("yeoman-generator");
-const chalk = require("chalk");
-const yosay = require("yosay");
-const globby = require("globby");
-const _ = require("lodash");
-const yoHelper = require("@jswork/yeoman-generator-helper");
-const getp = require("@jswork/generator-prompts");
+import Generator from "yeoman-generator";
+import globby from "globby";
+import chalk from "chalk";
+import yosay from "yosay";
+import _ from "lodash";
+import yoHelper from "@jswork/yeoman-generator-helper";
+import getp from "@jswork/generator-prompts";
+
 const MAIN = "@jswork/scrapy";
 const prompts = getp(["scope", "registry", "project_name", "description"]);
 
-require("@jswork/next-git-url");
-require("@jswork/next-random-string");
+import "@jswork/next-git-url";
+import "@jswork/next-random-string";
 
-module.exports = class extends Generator {
+export default class extends Generator {
+  constructor(args, opts) {
+    opts = { ...opts, skipInstall: true };
+    super(args, opts);
+  }
+
   get scrapAppName() {
     const appName = nx.get(this.props, "project_name");
     return appName ? _.snakeCase(appName) : "";
@@ -29,9 +34,6 @@ module.exports = class extends Generator {
     );
 
     this.props = await this.prompt(prompts);
-    yoHelper.rewriteProps(props, {
-      exclude: ["email", "description", "author", "homepage", "registry"],
-    });
   }
 
   writing() {
@@ -50,4 +52,4 @@ module.exports = class extends Generator {
       { ...this.props, app_name, randomStr, ctx: yoHelper.ctx },
     );
   }
-};
+}

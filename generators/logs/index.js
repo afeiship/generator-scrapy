@@ -1,10 +1,14 @@
-"use strict";
-const Generator = require("yeoman-generator");
-const { execSync } = require("child_process");
+import Generator from "yeoman-generator";
+import { execSync } from "child_process";
 
-require("@jswork/next-replace-in-file");
+import "@jswork/next-replace-in-file";
 
-module.exports = class extends Generator {
+export default class extends Generator {
+  constructor(args, opts) {
+    opts = { ...opts, skipInstall: true };
+    super(args, opts);
+  }
+
   writing() {
     const dist = this.destinationPath();
     execSync(`cd ${dist} && mkdir logs && cd logs && touch .gitkeep`);
@@ -16,7 +20,7 @@ module.exports = class extends Generator {
 
     // robots.txt
     nx.replaceInFile(filename, [
-      ["ROBOTSTXT_OBEY = True", "ROBOTSTXT_OBEY = False"]
+      ["ROBOTSTXT_OBEY = True", "ROBOTSTXT_OBEY = False"],
     ]);
 
     // settings
@@ -26,7 +30,7 @@ module.exports = class extends Generator {
         '\nLOG_LEVEL = "INFO"',
         'LOG_FILE = "./logs/spider.log"',
         'FILES_STORE = "./downloads"',
-      ].join("\n")
+      ].join("\n"),
     );
   }
-};
+}

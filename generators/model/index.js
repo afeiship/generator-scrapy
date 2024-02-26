@@ -1,10 +1,10 @@
-"use strict";
-const Generator = require("yeoman-generator");
-const globby = require("globby");
-const yoHelper = require("@jswork/yeoman-generator-helper");
+import Generator from "yeoman-generator";
+import globby from "globby";
+import yoHelper from "@jswork/yeoman-generator-helper";
 
-module.exports = class extends Generator {
+export default class extends Generator {
   constructor(args, opts) {
+    opts = { ...opts, skipInstall: true };
     super(args, opts);
     this.argument("model_name", { type: String, required: true });
   }
@@ -20,4 +20,4 @@ module.exports = class extends Generator {
       { model_name, ctx: yoHelper.ctx },
     );
   }
-};
+}
