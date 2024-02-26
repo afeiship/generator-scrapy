@@ -3,19 +3,6 @@
   "private": true,
   "version": "1.0.0",
   "description": "<%= description %>",
-  "scripts": {
-    "env:active": "source $(poetry env info --path)/bin/activate",
-    "log:empty": "cat /dev/null > logs/spider.log",
-    "log:tail": "tail -f logs/spider.log",
-    "spy:entry": "poetry run scrapy crawl entry"
-  },
-  "keywords": [
-    "scrapy",
-    "python",
-    "spider"
-  ],
-  "license": "MIT",
-  "dependencies": {
-    "@jswork/yeoman-generator-helper": "^1.0.11"
-  }
+  "keywords": ["scrapy", "python", "spider"],
+  "license": "MIT"
 }
