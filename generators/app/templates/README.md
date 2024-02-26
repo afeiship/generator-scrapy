@@ -4,21 +4,21 @@
 ## commands
 ```shell
 # use pm2 manage your spider
-poetry install
+pip install -r requirements.txt
 # active env
-npm run env:active
+. venv/bin/activate
 # start a spider
-poetry run scrapy crawl entry
+scrapy crawl post_every5minte
 # start with pm2
 pm2 start ecosystem.config.js --only "entry"
 
 ## generators
 # create model
-yo @jswork/scrapy:model ncbi_page --orm=peewee
+yo @jswork/scrapy:model ncbi_page
 # create spider
-yo @jswork/scrapy:spider ncbi_page --orm=peewee
+yo @jswork/scrapy:spider ncbi_page
 # create spider + model
-yo @jswork/scrapy:spmodel ncbi_page --orm=peewee
+yo @jswork/scrapy:spmodel ncbi_page
 
 # Add pipelines(processor + download)
 yo @jswork/scrapy:pipelines
