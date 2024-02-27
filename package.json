@@ -13,7 +13,6 @@
   "main": "generators/index.js",
   "keywords": ["yeoman", "scrapy", "spider", "generator"],
   "devDependencies": {
-    "git-url-parse": "^11.6.0",
     "prettier": "^3.2.5"
   },
   "dependencies": {
