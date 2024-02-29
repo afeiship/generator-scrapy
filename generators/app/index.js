@@ -37,15 +37,17 @@ export default class extends Generator {
     this.props = await this.prompt(prompts);
   }
 
-  async writing() {
+  writing() {
     const randomStr = nx.randomString(5);
     const app_name = this.scrapAppName;
     const opts = { app_name };
 
-    await this.composeWith(`${MAIN}:scrapy`, opts);
-    await this.composeWith(`${MAIN}:activerecord`, opts);
-    await nx.sleep(300);
-    await this.composeWith(`${MAIN}:logs`, opts);
+    this.composeWith(`${MAIN}:scrapy`, opts);
+    this.composeWith(`${MAIN}:activerecord`, opts);
+
+    setTimeout(() => {
+      this.composeWith(`${MAIN}:logs`, opts);
+    }, 300);
 
     this.fs.copyTpl(
       globby.sync(this.templatePath("**"), { dot: true }),
