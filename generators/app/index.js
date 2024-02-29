@@ -11,6 +11,7 @@ const prompts = getp(["scope", "registry", "project_name", "description"]);
 
 import "@jswork/next-git-url";
 import "@jswork/next-random-string";
+import '@jswork/next-sleep';
 
 export default class extends Generator {
   constructor(args, opts) {
@@ -36,16 +37,16 @@ export default class extends Generator {
     this.props = await this.prompt(prompts);
   }
 
-  writing() {
+  async writing() {
     const randomStr = nx.randomString(5);
     const app_name = this.scrapAppName;
     const opts = { app_name };
 
-    this.composeWith(`${MAIN}:scrapy`, opts);
-    this.composeWith(`${MAIN}:activerecord`, opts);
-    setTimeout(() => {
-      this.composeWith(`${MAIN}:logs`, opts);
-    }, 300);
+    await this.composeWith(`${MAIN}:scrapy`, opts);
+    await this.composeWith(`${MAIN}:activerecord`, opts);
+    await nx.sleep(300);
+    await this.composeWith(`${MAIN}:logs`, opts);
+
     this.fs.copyTpl(
       globby.sync(this.templatePath("**"), { dot: true }),
       this.destinationPath(),

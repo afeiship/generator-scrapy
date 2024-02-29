@@ -9,10 +9,18 @@
     "email": "1290657123@qq.com",
     "url": "https://js.work"
   },
-  "files": ["generators"],
+  "files": [
+    "generators"
+  ],
   "main": "generators/index.js",
-  "keywords": ["yeoman", "scrapy", "spider", "generator"],
+  "keywords": [
+    "yeoman",
+    "scrapy",
+    "spider",
+    "generator"
+  ],
   "devDependencies": {
+    "lodash": "^4.17.21",
     "prettier": "^3.2.5"
   },
   "dependencies": {
@@ -22,6 +30,7 @@
     "@jswork/next-git-url": "^1.0.5",
     "@jswork/next-random-string": "^1.0.1",
     "@jswork/next-replace-in-file": "^1.0.0",
+    "@jswork/next-sleep": "^1.0.1",
     "@jswork/yeoman-generator-helper": "^1.0.11",
     "chalk": "^2.1.0",
     "fast-glob": "^3.2.11",
