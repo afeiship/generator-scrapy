@@ -1,5 +1,6 @@
 import Generator from "yeoman-generator";
 import yoHelper from "@jswork/yeoman-generator-helper";
+import globby from "globby";
 
 export default class extends Generator {
   constructor(args, opts) {
