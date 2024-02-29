@@ -19,6 +19,10 @@ export default class extends Generator {
     super(args, opts);
   }
 
+  get srcFiles() {
+    return globby.sync(this.templatePath("**"), { dot: true });
+  }
+
   get scrapAppName() {
     const appName = nx.get(this.props, "project_name");
     return appName ? _.snakeCase(appName) : "";
@@ -50,7 +54,7 @@ export default class extends Generator {
     }, 300);
 
     this.fs.copyTpl(
-      globby.sync(this.templatePath("**"), { dot: true }),
+      this.srcFiles,
       this.destinationPath(),
       { ...this.props, app_name, randomStr, ctx: yoHelper.ctx },
     );

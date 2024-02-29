@@ -10,9 +10,11 @@ export default class extends Generator {
     this.argument("model_name", { type: String, required: true });
   }
 
-
-  writing() {
+  async writing() {
     const { model_name } = this.options;
-    this.composeWith(`${MAIN}:model`, { args: [model_name] });
+    await this.composeWith([
+      `${MAIN}:spider`,
+      `${MAIN}:model`,
+    ], { args: [model_name] });
   }
 }
