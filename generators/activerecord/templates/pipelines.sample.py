@@ -5,9 +5,9 @@
 
 
 # useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
-from spider_nces_edu_gov.models.sample_post import SamplePost
-
+# from itemadapter import ItemAdapter
+# from spider_nces_edu_gov.models.sample_post import SamplePost
+from <%= app_name %>.db import col_posts
 
 class SpiderSamplePipeline:
     def process_item(self, item, spider):
@@ -18,12 +18,11 @@ class SpiderSamplePipeline:
             method(payload, item, spider)
         return item
 
-    def save_page(self, payload, item, spider):
-        code = payload.get("code")
-        total = payload.get("total")
-        entity, created = SamplePost.get_or_create(code=code, defaults={"total": total})
-
-        if not created:
-            spider.logger.info(f"Page {code} already exists")
-        else:
-            spider.logger.info(f"Page {code} created")
+    def save_mongo_posts(self, payload, item, spider):
+        post_id = payload.get("post_id")
+        col_posts.update_one(
+            {"post_id": post_id},
+            {"$set": payload},
+            upsert=True
+        )
+        spider.logger.info(f"✅ save_mongo_posts: {post_id}")
